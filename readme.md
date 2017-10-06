@@ -1,0 +1,1 @@
+# Drafts for a "Python for beginners" type book
