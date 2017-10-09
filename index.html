@@ -12661,8 +12661,6 @@ http://www.saramin.co.kr/zf_user/help/live/index/page/4?base_year=2015&amp;keywo
     <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;http://www.saramin.co.kr/zf_user/help/live/index/page/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;?keyword=</span><span class="si">%E</span><span class="s1">A%B1%B4</span><span class="si">%E</span><span class="s1">C</span><span class="si">%84%</span><span class="s1">A4&amp;menu=1&amp;base_year=2016&#39;</span>
     <span class="c1">#첫번째 예시에서 소개한 방법 대로 페이지 별 데이터 테이블을 가져온다. </span>
     <span class="n">getting_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">link</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="c1">#지금현재 어느 페이지에 있는 지 보기 위해 카운터 (n)을 프린트하고 다음 loop에서 n을 프린트할 때 줄바꿈 대신 &#39;, &#39;를 프린트하기 위해 end=&#39;, &#39; 변수를 더해준다. </span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
     <span class="c1">#데이터가 존재하지 않는 테이블에 봉착하게 될 경우 while loop을 끝내도록 하는 조건문을 추가한다. </span>
     <span class="k">if</span> <span class="n">getting_table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;죄송합니다&#39;</span><span class="p">):</span>
         <span class="c1">#마지막 출력값이 쉼표로 끝나면 어색하니, 끝맺음을 알리는 문구를 달아주자. </span>
@@ -12671,6 +12669,8 @@ http://www.saramin.co.kr/zf_user/help/live/index/page/4?base_year=2015&amp;keywo
         <span class="k">break</span>
     <span class="c1">#위에서 준비한 빈 데이터 프레임에 읽어온 테이블을 이어붙인다. </span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">getting_table</span><span class="p">)</span>
+    <span class="c1">#지금현재 어느 페이지에 있는 지 보기 위해 카운터 (n)을 프린트하고 다음 loop에서 n을 프린트할 때 줄바꿈 대신 &#39;, &#39;를 프린트하기 위해 end=&#39;, &#39; 변수를 더해준다. </span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
     <span class="c1">#카운터 n에 1을 더하고 새로운 loop으로 넘어가자.</span>
     <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -13682,79 +13682,6 @@ Name: title, dtype: object</pre>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#이제 내용이 redundant한 기존의 title 열을 지울 수 있다</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#53945;&#51221;-&#53581;&#49828;&#53944;-&#54252;&#54632;-&#50976;&#47924;&#47196;-Y/N-&#50676;-&#47564;&#46308;&#44592;"><p style="color:blue">&#53945;&#51221; &#53581;&#49828;&#53944; &#54252;&#54632; &#50976;&#47924;&#47196; Y/N &#50676; &#47564;&#46308;&#44592;</p><a class="anchor-link" href="#&#53945;&#51221;-&#53581;&#49828;&#53944;-&#54252;&#54632;-&#50976;&#47924;&#47196;-Y/N-&#50676;-&#47564;&#46308;&#44592;">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;experience&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;경력&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">experience</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;신입&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">new</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;intern&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;인턴&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">intern</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;contract&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;계약&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="n">row</span><span class="o">.</span><span class="n">contract</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
 </pre></div>
 
 </div>
